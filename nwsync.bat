@@ -1,0 +1,1 @@
+./update --description="My Cool Module Server Data V1" /var/www/nwsync ~/nwnroot/modules/mycoolmodule.mod

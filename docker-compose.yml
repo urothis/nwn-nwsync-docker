@@ -1,0 +1,24 @@
+version: '3'
+services:
+  nwnxee-server:
+    image: beamdog/nwserver:dev
+    env_file: ${PWD-.}/config/nwserver.env
+    stdin_open: true
+    tty: true
+    links:
+      - "db:db"
+      - "redis:redis"
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ${PWD-.}/logs:/nwn/run/logs.0
+      - ${PWD-.}/server/:/nwn/home
+    restart: always
+    ports:
+      - "5121:5121/udp"
+  caddy:
+    image: abiosoft/caddy:latest
+    ports:
+        -   8080:8080
+    command: -root ./nwsync -port 8080 gzip
