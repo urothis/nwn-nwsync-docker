@@ -1,0 +1,7 @@
+.hak
+*.mod
+.tlk
+/logs
+/var/www/nwsync
+/server/hak
+/server/module
