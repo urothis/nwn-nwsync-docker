@@ -5,12 +5,6 @@ services:
     env_file: ${PWD-.}/config/nwserver.env
     stdin_open: true
     tty: true
-    links:
-      - "db:db"
-      - "redis:redis"
-    depends_on:
-      - db
-      - redis
     volumes:
       - ${PWD-.}/logs:/nwn/run/logs.0
       - ${PWD-.}/server/:/nwn/home
