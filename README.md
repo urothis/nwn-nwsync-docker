@@ -6,25 +6,26 @@ WIP: Should be able to deliver hak content now.
 nwnxee version will be put into urothis/nwnxee-template
 
 ## Usage
-Spin up the docker compose, then run the sh/bat script.
+"docker-compose up caddy"
+
+This will spin up the required webserver for nwsync to generate manifest and files.
+
+'You can safely disconnect from that terminal using ctrl-z'
 
 "./nwnsnc.sh" should work on linux
 
+Once nwsync has pulled the manifest, and files it needs to deliver the content. 
 
+"docker-compose up nwnxee-server"
 
+## Normal usage
 
-Once nwsync has pulled the manifest and files it needs to deliver the content. 
+Once files are in place and you want to restart everything.
+'docker-compose down'
+and 
+'docker-compose up' 
 
-"docker-compose down"
-
-modify the nwserver.env file to
-
-NWN_NWSYNCURL=1
-
-Once that is saved,
-
-"docker-compose up"
-
+Should be what you use in your normal testing routine.
 
 ## Windows
 
